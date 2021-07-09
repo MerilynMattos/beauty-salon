@@ -1,1 +1,1 @@
-# beauty-salon
+# Beauty Salon
