@@ -100,7 +100,7 @@ body {
 }
 
 .section.title {
-  margin-bottom: 1 rem;
+  margin-bottom: 1rem;
 }
 
 .section .subtitle {
@@ -163,10 +163,14 @@ nav ul.grid {
 }
 
 nav ul li a {
-  transition: color 0, 2s;
+  transition: color 0.2s;
   position: relative;
 }
 
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--base-color);
+}
 nav ul li a::after {
   content: '';
   width: 0%;
@@ -180,12 +184,9 @@ nav ul li a::after {
   transition: width 0.2s;
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after,
+nav ul li a.active::after {
   width: 100%;
-}
-
-nav ul li a:hover {
-  color: var(--base-color);
 }
 
 nav .menu {
@@ -198,6 +199,7 @@ nav .menu {
 nav .menu ul {
   display: none;
 }
+
 /*=== Mostrar Menu===*/
 
 nav.show .menu {
@@ -275,6 +277,7 @@ nav.show div.icon-close {
 #home .image img {
   position: relative;
   right: 2.93rem;
+  left: 0;
 }
 
 #home .image::before #home .image img {
@@ -353,6 +356,7 @@ nav.show div.icon-close {
   border-bottom: 0.25rem solid var(--base-color);
   border-radius: 0.25rem 0.25rem 0 0;
   text-align: center;
+  display: inline-block;
 }
 
 .card i {
@@ -360,6 +364,7 @@ nav.show div.icon-close {
   margin-bottom: 1.5rem;
   font-size: 5rem;
   color: var(--base-color);
+  
 }
 
 .card .title {
@@ -538,6 +543,14 @@ footer .social a:hover {
     padding: 10rem 0;
   }
 
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .button {
     height: 3.125rem;
   }
@@ -556,12 +569,20 @@ footer .social a:hover {
   }
 
   nav .menu ul li a.title {
-    font: 700 1rem var(--body-font);
+    font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul li a.title.active {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
   }
 
   nav .icon-menu {
     display: none;
   }
+
+  /*layout*/
 
   main {
     margin-top: var(--header-height);
@@ -586,8 +607,50 @@ footer .social a:hover {
     text-align: left;
   }
 
-  main {
-    margin-top: var(--header-height);
+  /* about*/
+
+  #about .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+  }
+
+  /*services*/
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /*testimonials*/
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /*contact*/
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text {
+    max-width: 25rem;
+  }
+
+  /*contact*/
+  footer.section {
+    padding: 3.75rem 0;
+  }
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo {
+    font-size: 2.25rem;
   }
 }
 
